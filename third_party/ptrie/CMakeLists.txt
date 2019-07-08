@@ -1,0 +1,32 @@
+cmake_minimum_required(VERSION 3.9)
+
+cmake_policy(SET CMP0048 NEW)
+cmake_policy(SET CMP0069 NEW)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
+project(ptrie VERSION 1.0.0 LANGUAGES CXX)
+if(NOT CMAKE_BUILD_TYPE)
+	set(CMAKE_BUILD_TYPE Release)
+endif(NOT CMAKE_BUILD_TYPE)
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O2 -DNDEBUG -Wall -Wpedantic -fPIC")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -DNDEBUG -Wall -Wpedantic -fPIC")
+set(CMAKE_CXX_STANDARD 17)
+
+#actual library
+add_subdirectory(src)
+
+#benchmark
+add_subdirectory(benchmark)
+
+#testing
+add_subdirectory(test)
+enable_testing()
+add_test(NAME Wrapper   COMMAND Wrapper)
+add_test(NAME Set       COMMAND Set)
+add_test(NAME Delete    COMMAND Delete)
+add_test(NAME StableSet COMMAND StableSet)
+add_test(NAME Map       COMMAND Map)
