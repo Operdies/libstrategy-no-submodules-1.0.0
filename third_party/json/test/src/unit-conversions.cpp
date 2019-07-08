@@ -611,11 +611,11 @@ TEST_CASE("value conversion")
         }
 
 #if defined(JSON_HAS_CPP_17)
-        SECTION("std::string_view")
-        {
-            std::string_view s = j;
-            CHECK(json(s) == j);
-        }
+//        SECTION("std::string_view")
+//        {
+//            std::string_view s = j;
+//            CHECK(json(s) == j);
+//        }
 #endif
 
         SECTION("std::string")
