@@ -20,13 +20,13 @@ set(CMAKE_CXX_STANDARD 17)
 add_subdirectory(src)
 
 #benchmark
-add_subdirectory(benchmark)
+# add_subdirectory(benchmark)
 
 #testing
-add_subdirectory(test)
-enable_testing()
-add_test(NAME Wrapper   COMMAND Wrapper)
-add_test(NAME Set       COMMAND Set)
-add_test(NAME Delete    COMMAND Delete)
-add_test(NAME StableSet COMMAND StableSet)
-add_test(NAME Map       COMMAND Map)
+# add_subdirectory(test)
+# enable_testing()
+# add_test(NAME Wrapper   COMMAND Wrapper)
+# add_test(NAME Set       COMMAND Set)
+# add_test(NAME Delete    COMMAND Delete)
+# add_test(NAME StableSet COMMAND StableSet)
+# add_test(NAME Map       COMMAND Map)
